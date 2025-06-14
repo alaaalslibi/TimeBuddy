@@ -48,3 +48,11 @@ git clone https://github.com/alaaalslibi/TimeBuddy.git
 ## 🔐 Lizenz
 
 Dieses Projekt ist **Open Source** unter der **MIT Lizenz** veröffentlicht.
+## 🔐 Hinweis zur Nutzung
+
+- `login.html` dient als Schnellvorschau der Oberfläche **ohne Login** – ideal für die erste Präsentation oder das Design-Feedback.
+- `main.html` enthält eine einfache Login-Überprüfung mit **Benutzername: 1234** und **Passwort: 1234** – ideal als realistisches Beispiel für einen geschützten Zugang.
+---
+
+📌 **Hinweis**  
+Dieses Projekt wurde im Rahmen meiner Bewerbung als *Fachinformatiker für Anwendungsentwicklung* entwickelt, um meine praktischen Fähigkeiten in Webentwicklung und UI-Design zu demonstrieren.
