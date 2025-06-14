@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TerminManager PRO</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+    <i data-lucide="moon"></i>
+  </button>
+
+  <div id="main-content">
+    <header style="background: linear-gradient(to right, #1e3c72, #2a5298); color: white; padding: 30px 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+      <h1 style="margin: 0;">
+        <strong style="color: white;">www.TerminManager</strong><strong style="color: #34a0ff;">PRO.de</strong>
+      </h1>
+      <p class="tagline" style="font-size: 16px; margin-top: 5px;">Planen. Exportieren. Beeindrucken.</p>
+    </header>
+
+    <section id="dashboard">
+      <div class="dash-box" id="total">📋 Gesamt: 0</div>
+      <div class="dash-box" id="offen">🟡 Offen: 0</div>
+      <div class="dash-box" id="erledigt">✅ Erledigt: 0</div>
+      <div class="dash-box" id="wichtig">❗ Wichtig: 0</div>
+    </section>
+
+    <section id="form-section" class="form-row">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="tel" id="telefon" placeholder="Telefon" />
+      <input type="email" id="email" placeholder="E-Mail" />
+      <input type="date" id="datum" />
+      <input type="time" id="uhrzeit" />
+      <select id="status">
+        <option value="Offen">Offen</option>
+        <option value="Erledigt">Erledigt</option>
+        <option value="Wichtig">Wichtig</option>
+      </select>
+      <textarea id="notiz" placeholder="Notiz"></textarea>
+      <button id="save-btn" onclick="terminSpeichern()">Speichern</button>
+      <button onclick="resetForm()" id="reset-btn" class="reset-btn">Reset</button>
+    </section>
+
+    <section id="such-section" class="search-row">
+      <input type="text" id="suchfeld" placeholder="Suchen..." oninput="filtern()" />
+      <select id="filter-status" onchange="filtern()">
+        <option value="Alle">Alle</option>
+        <option value="Offen">Offen</option>
+        <option value="Erledigt">Erledigt</option>
+        <option value="Wichtig">Wichtig</option>
+      </select>
+    </section>
+
+    <section id="table-section">
+      <table id="termin-tabelle">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Telefon</th>
+            <th>E-Mail</th>
+            <th>Datum</th>
+            <th>Uhrzeit</th>
+            <th>Status</th>
+            <th>Notiz</th>
+            <th>Aktion</th>
+          </tr>
+        </thead>
+        <tbody id="tabelle-body"></tbody>
+      </table>
+    </section>
+
+    <section id="export-section" class="export-buttons">
+      <button id="export-pdf" onclick="exportToPDF()">PDF Exportieren</button>
+      <button id="print" onclick="window.print()">Drucken</button>
+      <button id="lang-toggle" onclick="switchLanguage()">🌐 Sprache wechseln</button>
+      <button id="clear-storage" onclick="localStorage.clear(); location.reload()">🗑️ Speicher löschen</button>
+    </section>
+
+    <section id="chart-section">
+      <canvas id="statusChart" width="400" height="200"></canvas>
+    </section>
+
+    <footer>
+      <p class="secure-note">🔒 Ihre Daten werden sicher verarbeitet. DSGVO-konform.</p>
+    </footer>
+
+    <div id="notification" class="notification" style="display: none;"></div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

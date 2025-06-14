@@ -1,0 +1,262 @@
+:root {
+  --bg: #f5f7fb;
+  --text: #111;
+  --card: #ffffff;
+  --primary: #2f72da;
+  --green: #28a745;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --gray: #6c757d;
+  --border: #e0e0e0;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #f0f0f0;
+  --card: #2a2a2a;
+  --border: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+  padding-bottom: 50px;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #2f72da, #1e3c72);
+  color: white;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+.tagline {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.form-row,
+.search-row,
+.export-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+input, select, textarea, button {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border 0.3s;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 36px;
+  max-width: 250px;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#save-btn {
+  background: linear-gradient(to right, #34c759, #28a745);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.reset-btn {
+  background-color: var(--gray);
+}
+
+#save-btn.editing {
+  background-color: var(--orange);
+}
+
+#termin-tabelle {
+  width: 95%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 14px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+}
+
+#termin-tabelle th, #termin-tabelle td {
+  padding: 10px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+#termin-tabelle th {
+  background-color: var(--primary);
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.status-Offen {
+  color: var(--gray);
+}
+
+.status-Erledigt {
+  color: var(--green);
+  font-weight: bold;
+}
+
+.status-Wichtig {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.action-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.action-btn.edit {
+  background-color: var(--green);
+  color: white;
+}
+
+.action-btn.delete {
+  background-color: var(--red);
+  color: white;
+}
+
+#chart-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  max-width: 320px;
+}
+
+#statusChart {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.dash-box {
+  background-color: var(--card);
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  z-index: 999;
+}
+
+.notification.show {
+  display: block;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+#login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+#login-screen input {
+  width: 250px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+#login-screen button {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#login-error {
+  color: red;
+  margin-top: 10px;
+}
